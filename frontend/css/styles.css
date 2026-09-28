@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+    font-family: system-ui, sans-serif;
+    color: #202a33;
+    background: #f4f7f6;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+}
+
+main {
+    width: min(100% - 2rem, 48rem);
+    padding: 2rem 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+p {
+    color: #52616b;
+}

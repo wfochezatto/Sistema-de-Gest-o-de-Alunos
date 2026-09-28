@@ -1,0 +1,11 @@
+# Java and Maven
+*.class
+backend/target/
+backend/bin/
+
+# IDE files
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
