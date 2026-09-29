@@ -1,32 +1,98 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    color-scheme: light;
-    font-family: system-ui, sans-serif;
-    color: #202a33;
-    background: #f4f7f6;
-}
-
-body {
-    min-width: 320px;
+body
+{
+    background: linear-gradient(135deg, #02040a, #10143a, #252b70);
     min-height: 100vh;
-    margin: 0;
-    display: grid;
-    place-items: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-main {
-    width: min(100% - 2rem, 48rem);
-    padding: 2rem 0;
+.Login-container
+{
+    
+    text-align: center;
+    width: 500px;
+    height: 450px;
+
+    padding: 45px 25px;
+    
+    background: rgba(18, 21, 54, 0);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 35px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 27px;
+    backdrop-filter: blur(10px);
 }
 
-h1 {
-    margin: 0;
-    font-size: 2rem;
+h1
+{
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 45px;
 }
 
-p {
-    color: #52616b;
+#username,#password
+{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 55px;
+    padding: 30px 24px;
+    margin-top: 12px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+
+    background: rgba(255, 255, 255, 0.07);
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+
+input {
+    background: transparent;
+    border: 1px solid #5867b8;
+    color: white;
+    transition: 0.4s;
+}
+
+input:hover {
+    border-color: #fafafc;
+    box-shadow: 0 0 10px rgba(250, 248, 248, 0.568);
+}
+
+button
+{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(88, 103, 184, 0.4);
+    transition: 0.4s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    background: linear-gradient(135deg, #6b7ad0, #8c99ff);
+
+    box-shadow: 0 0 25px rgba(88, 103, 184, 0.7);
+}
+
+button:active {
+    transform: translateY(0);
 }
