@@ -1,35 +1,45 @@
-const form = document.getElementById("formLogin");
+const botaoLogin = document.getElementById("loginButton");
 
-form.addEventListener("submit", async (event) => {
+botaoLogin.addEventListener("click", async () => {
 
-    event.preventDefault();
+    const email = document.getElementById("username").value.trim();
+    const senha = document.getElementById("password").value;
 
-    const email = document.getElementById("email").value.trim();
-    const senha = document.getElementById("senha").value;
+    console.log("E-mail:", email);
+    console.log("Senha:", senha);
 
-    const resposta = await fetch("http://localhost:8080/auth/login", {
-        method: "POST",
+    try {
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+        const resposta = await fetch("http://localhost:8080/auth/login", {
+            method: "POST",
 
-        body: JSON.stringify({
-            email: email,
-            senha: senha
-        })
-    });
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-    if (!resposta.ok) {
-        alert("E-mail ou senha incorretos.");
-        return;
+            body: JSON.stringify({
+                email: email,
+                senha: senha
+            })
+        });
+
+        const dados = await resposta.json();
+
+        console.log("Resposta do backend:", dados);
+
+        if (!resposta.ok) {
+            alert("E-mail ou senha incorretos.");
+            return;
+        }
+
+        sessionStorage.setItem("token", dados.token);
+
+        window.location.href = "dashboard.html";
+
+    } catch (erro) {
+
+        console.error("Erro:", erro);
+
+        alert("Não foi possível conectar ao servidor.");
     }
-
-    const dados = await resposta.json();
-
-    console.log(dados);
-
-    sessionStorage.setItem("token", dados.token);
-
-    alert("Login realizado com sucesso!");
 });
