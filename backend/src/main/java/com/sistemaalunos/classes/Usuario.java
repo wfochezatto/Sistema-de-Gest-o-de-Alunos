@@ -1,5 +1,6 @@
 package com.sistemaalunos.classes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -19,7 +20,8 @@ public class Usuario {
     private String email;
 
     @Column(name = "senha_hash", nullable = false)
-    private String senhahash;
+    @JsonIgnore
+    private String senhaHash;
 
     public Usuario(){
     }
@@ -27,7 +29,7 @@ public class Usuario {
     public Usuario(String email, String senhahash) {
         
         this.email = email;
-        this.senhahash = senhahash;
+        this.senhaHash = senhahash;
     }
 
     public Long getId() {
@@ -39,6 +41,6 @@ public class Usuario {
     }
 
     public String getSenhaHash() {
-        return senhahash;
+        return senhaHash;
     }
 }

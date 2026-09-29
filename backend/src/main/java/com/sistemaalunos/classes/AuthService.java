@@ -27,14 +27,13 @@ public class AuthService {
 
     public LoginResponse autenticar(LoginRequest request) {
         Usuario usuario = usuarioRepository.findByEmail(request.getEmail())
-            .orElseThrow(() -> new CredenciaisInvalidasException());
+            .orElseThrow(() -> new CredenciaisInvalidasException("Email ou senha inválidos"));
 
         if (!passwordEncoder.matches(request.getSenha(), usuario.getSenhaHash())) {
-            throw new CredenciaisInvalidasException();
+            throw new CredenciaisInvalidasException("Email ou senha inválidos");
         }
 
         String token = jwtService.gerarToken(usuario);
         return new LoginResponse(token);
     }
 }
-
